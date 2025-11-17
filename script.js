@@ -20,9 +20,9 @@ const questsData = {
         { zone: "Mermaid Palace", requirement: "Drill 2 Topaz - Obtained drilling Oops Wharf Fields (There are other sources)" },
         { zone: "Ghost Blue", requirement: "Drill 1 Rusty Nail - Obtained drilling Ghost Blue Fields" },
         { zone: "Rose Garden", requirement: "Collect 1 Copper Tight, 1 Silver Tight and 1 Gold Tight - Obtained from Captains(Rose Garden Field 2)" },
-        { zone: "Black Swamp", requirement: "Pending" },
-        { zone: "Snow Hill", requirement: "Pending" },
-        { zone: "Techichi Volcano", requirement: "Pending" },
+        { zone: "Black Swamp", requirement: "Drill 1 Pottery Doll - Obtained drilling in Swamp Fields" },
+        { zone: "Snow Hill", requirement: "Collect 2 Sweet Chestnut and 2 Toasty Walnut - Obtained from Trees in Lapanoel" },
+        { zone: "Techichi Volcano", requirement: "Collect 2 Plaster Powder and 2 Ponchichi Statue - Obtained from Ponchichi, Techichi Fields" },
         { zone: "Tapasco Volcano", requirement: "Pending" },
         { zone: "Platonia", requirement: "Pending" }
     ],

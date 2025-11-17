@@ -24,7 +24,7 @@ body {
 }
 
 .logo {
-    max-width: 150px;
+    max-width: 300px;
     height: auto;
     margin-bottom: 10px;
     border-radius: 10px;
@@ -163,7 +163,7 @@ h1 {
 
 .section {
     display: none;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.85);
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
