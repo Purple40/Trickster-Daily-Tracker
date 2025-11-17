@@ -30,7 +30,6 @@ const questsData = {
         { zone: "Cora MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
         { zone: "Cora MonsterGuild (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
         { zone: "Gate Desert Beach (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Paradise MonsterGuild (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
         { zone: "Beach Field 3 (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
         { zone: "Path Desert Beach (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
         { zone: "Mega MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
