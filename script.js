@@ -164,7 +164,7 @@ function checkReset() {
     const lastReset = localStorage.getItem('lastReset') || 'Never';
     lastResetSpan.textContent = lastReset;
 
-    if (uruguayTime.getHours() >= 21 && lastReset !== uruguayTime.toDateString()) {
+    if (uruguayTime.getHours() >= 20 && lastReset !== uruguayTime.toDateString()) {
         Object.keys(questsData).forEach(sectionId => {
             questsData[sectionId].forEach((_, index) => {
                 localStorage.setItem(`${sectionId}-${index}`, 'false');
@@ -179,7 +179,7 @@ function checkReset() {
 function updateCountdown() {
     const now = new Date();
     const uruguayTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Montevideo"}));
-    const resetHour = 21; // 9 PM
+    const resetHour = 20; // 8 PM
     const resetMinute = 0;
     const resetSecond = 0;
 
