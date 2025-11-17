@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <title>X Trickster Online Dailies Tracker</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="assets/XTO_Logo_Transparent.png" alt="X Trickster Online Logo" class="logo">
+            <a href="https://xtrickster.com" target="_blank">
+                <img src="assets/logo.png" alt="X Trickster Online Logo" class="logo">
+            </a>
             <h1>X Trickster Online Dailies Tracker</h1>
-            <p class="reset-info">Resets daily at 9 PM Uruguay time. Last reset: <span id="lastReset"></span></p>
+            <p class="reset-info">Resets daily at 9 PM Uruguay time.<span id="lastReset"></span></p>
             <div id="timer">Time until reset: <span id="countdown">00:00:00</span></div>
-            <div class="data-buttons">
-                <button id="exportBtn" class="data-btn">Export Data</button>
-                <input type="file" id="importInput" accept=".json" style="display: none;">
-                <button id="importBtn" class="data-btn">Import Data</button>
-            </div>
+
         </div>
 
     <div class="tabs">

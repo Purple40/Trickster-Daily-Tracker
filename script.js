@@ -23,8 +23,8 @@ const questsData = {
         { zone: "Black Swamp", requirement: "Drill 1 Pottery Doll - Obtained drilling in Swamp Fields" },
         { zone: "Snow Hill", requirement: "Collect 2 Sweet Chestnut and 2 Toasty Walnut - Obtained from Trees in Lapanoel" },
         { zone: "Techichi Volcano", requirement: "Collect 2 Plaster Powder and 2 Ponchichi Statue - Obtained from Ponchichi, Techichi Fields" },
-        { zone: "Tapasco Volcano", requirement: "Pending" },
-        { zone: "Platonia", requirement: "Pending" }
+        { zone: "Tapasco Volcano", requirement: "Collect 3 Orc Bats - Obtained from Red Orcs, Tapasco Fields" },
+        { zone: "Platonia", requirement: "Missing a lvl 400 (Sadge)" }
     ],
     monsterGuild: [
         { zone: "Cora MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
@@ -200,51 +200,6 @@ function updateCountdown() {
     }
 }
 
-// Export data function
-function exportData() {
-    const data = {};
-    Object.keys(questsData).forEach(sectionId => {
-        questsData[sectionId].forEach((_, index) => {
-            const key = `${sectionId}-${index}`;
-            data[key] = localStorage.getItem(key) === 'true';
-        });
-    });
-    data.lastReset = localStorage.getItem('lastReset') || 'Never';
-    const dataStr = JSON.stringify(data, null, 2);
-    const blob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'x-trickster-tracker-data.json';
-    a.click();
-    URL.revokeObjectURL(url);
-}
-
-// Import data function
-function importData(event) {
-    const file = event.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        try {
-            const data = JSON.parse(e.target.result);
-            Object.keys(data).forEach(key => {
-                if (key === 'lastReset') {
-                    localStorage.setItem(key, data[key]);
-                } else {
-                    localStorage.setItem(key, data[key] ? 'true' : 'false');
-                }
-            });
-            loadState();
-            renderStatistics();
-            alert('Data imported successfully!');
-        } catch (error) {
-            alert('Error importing data: Invalid file format.');
-        }
-    };
-    reader.readAsText(file);
-}
-
 // Render statistics
 function renderStatistics() {
     let totalCompleted = 0;
@@ -277,11 +232,6 @@ function renderStatistics() {
     document.getElementById('completionRate').textContent = `${completionRate}%`;
     document.getElementById('streak').textContent = streak;
 }
-
-// Event listeners
-document.getElementById('exportBtn').addEventListener('click', exportData);
-document.getElementById('importBtn').addEventListener('click', () => document.getElementById('importInput').click());
-document.getElementById('importInput').addEventListener('change', importData);
 
 // Initialize
 loadState();
