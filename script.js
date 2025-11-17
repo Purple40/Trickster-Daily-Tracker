@@ -191,7 +191,23 @@ function updateCountdown() {
         resetTime.setDate(resetTime.getDate() + 1);
     }
 
-    const timeDiff = resetTime - uruguayTime;
+    let timeDiff = resetTime - uruguayTime;
+
+    // If countdown reaches 0, trigger reset and restart countdown
+    if (timeDiff <= 0) {
+        // Reset all quests
+        Object.keys(questsData).forEach(sectionId => {
+            questsData[sectionId].forEach((_, index) => {
+                localStorage.setItem(`${sectionId}-${index}`, 'false');
+            });
+        });
+        localStorage.setItem('lastReset', uruguayTime.toDateString());
+        loadState();
+        // Set resetTime to next day
+        resetTime.setDate(resetTime.getDate() + 1);
+        timeDiff = resetTime - uruguayTime;
+    }
+
     const hours = Math.floor(timeDiff / (1000 * 60 * 60));
     const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
