@@ -14,12 +14,12 @@ const questsData = {
         { zone: "Tapasco Volcano (NPC: Guardian Kerberos)", requirement: "Collect 2 HP Recovery Potion" }
     ],
     developerH: [
-        { zone: "Megalopolis", requirement: "Collect 10 Acorn Bracelet" },
-        { zone: "Caballa Relics", requirement: "Collect 1 Silver Bracelet and 1 Golden Bracelet" },
-        { zone: "Oops Wharf", requirement: "Drill 1 Portable Sunshade" },
-        { zone: "Mermaid Palace", requirement: "Drill 2 Topaz" },
-        { zone: "Ghost Blue", requirement: "Drill 1 Rusty Nail" },
-        { zone: "Rose Garden", requirement: "Collect 1 Copper Tight, 1 Silver Tight and 1 Gold Tight" },
+        { zone: "Megalopolis", requirement: "Collect 10 Acorn Bracelet - Obtained from Green Yamu, Southeast Forest" },
+        { zone: "Caballa Relics", requirement: "Collect 1 Silver Bracelet and 1 Golden Bracelet - Obtained from Mimic, Caballa Fields" },
+        { zone: "Oops Wharf", requirement: "Drill 1 Portable Sunshade - Obtained drilling Oops Wharf Fields" },
+        { zone: "Mermaid Palace", requirement: "Drill 2 Topaz - Obtained drilling Oops Wharf Fields (There are other sources)" },
+        { zone: "Ghost Blue", requirement: "Drill 1 Rusty Nail - Obtained drilling Ghost Blue Fields" },
+        { zone: "Rose Garden", requirement: "Collect 1 Copper Tight, 1 Silver Tight and 1 Gold Tight - Obtained from Captains(Rose Garden Field 2)" },
         { zone: "Black Swamp", requirement: "Pending" },
         { zone: "Snow Hill", requirement: "Pending" },
         { zone: "Techichi Volcano", requirement: "Pending" },
