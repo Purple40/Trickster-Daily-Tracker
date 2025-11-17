@@ -10,6 +10,7 @@ const questsData = {
         { zone: "Ghost Blue (NPC: Star Gazer Stella)", requirement: "Collect 1 Stela's Profile" },
         { zone: "Rose Garden (NPC: Homeless Ian)", requirement: "Collect 2 Punisher B.V Claws" },
         { zone: "Black Swamp (NPC: Hair of Rosetta)", requirement: "Drill 2 Swamp Leaf" },
+        { zone: "Laplanoel (NPC: Winnie)", requirement: "Collect 2 Iciclers Crystal" },
         { zone: "Techichi Volcano (NPC: Star Gazer Stella)", requirement: "Collect 2 Stellar's Profile" },
         { zone: "Tapasco Volcano (NPC: Guardian Kerberos)", requirement: "Collect 2 HP Recovery Potion" }
     ],
@@ -30,6 +31,8 @@ const questsData = {
         { zone: "Cora MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
         { zone: "Cora MonsterGuild (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
         { zone: "Gate Desert Beach (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
+        { zone: "Paradise MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
+        { zone: "Paradise MonsterGuild (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
         { zone: "Beach Field 3 (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
         { zone: "Path Desert Beach (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
         { zone: "Mega MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
