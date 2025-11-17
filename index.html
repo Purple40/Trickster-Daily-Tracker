@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>X Trickster Online Dailies Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="assets/group2.png" alt="X Trickster Online Logo" class="logo">
+            <h1>X Trickster Online Dailies Tracker</h1>
+            <p class="reset-info">Resets daily at 9 PM Uruguay time. Last reset: <span id="lastReset"></span></p>
+            <div id="timer">Time until reset: <span id="countdown">00:00:00</span></div>
+            <div class="data-buttons">
+                <button id="exportBtn" class="data-btn">Export Data</button>
+                <input type="file" id="importInput" accept=".json" style="display: none;">
+                <button id="importBtn" class="data-btn">Import Data</button>
+            </div>
+        </div>
+
+    <div class="tabs">
+        <button class="tab active" onclick="showSection('zoneDaily')">Zone Daily Quests</button>
+        <button class="tab" onclick="showSection('developerH')">Developer H Dailies</button>
+        <button class="tab" onclick="showSection('monsterGuild')">Monster Guild Quests</button>
+        <button class="tab" onclick="showSection('statistics')">Statistics</button>
+    </div>
+
+    <div id="zoneDaily" class="section active">
+        <div class="counter" id="counter-zoneDaily">0/11 completed</div>
+        <progress class="progress-bar" id="progress-zoneDaily" value="0" max="1"></progress>
+        <div id="quests-zoneDaily"></div>
+    </div>
+
+    <div id="developerH" class="section">
+        <div class="counter" id="counter-developerH">0/11 completed</div>
+        <progress class="progress-bar" id="progress-developerH" value="0" max="1"></progress>
+        <div id="quests-developerH"></div>
+    </div>
+
+    <div id="monsterGuild" class="section">
+        <div class="counter" id="counter-monsterGuild">0/39 completed</div>
+        <progress class="progress-bar" id="progress-monsterGuild" value="0" max="1"></progress>
+        <div id="quests-monsterGuild"></div>
+    </div>
+
+    <div id="statistics" class="section">
+        <h2>Overall Statistics</h2>
+        <div class="stat-item">
+            <span class="stat-label">Total Quests Completed:</span>
+            <span class="stat-value" id="totalCompleted">0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Overall Completion Rate:</span>
+            <span class="stat-value" id="completionRate">0%</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Current Streak (Days):</span>
+            <span class="stat-value" id="streak">0</span>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
