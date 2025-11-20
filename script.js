@@ -1,105 +1,222 @@
-// Quest data
-const questsData = {
-    zoneDaily: [
-        { zone: "Coral Beach (NPC: Indiana Jhones)", requirement: "Collect 2 Crystal" },
-        { zone: "Desert Beach (NPC: Monkey T)", requirement: "Collect 1 Sleeping Socks" },
-        { zone: "Megalopolis (NPC: Star Gazer Stella)", requirement: "Collect 1 Shtella's Profile" },
-        { zone: "Caballa Relics (NPC: Pharaoh Boy)", requirement: "Collect 1 Staff of Purification" },
-        { zone: "Oops Wharf (NPC: Marinel)", requirement: "Drill 2 Thick Rope" },
-        { zone: "Mermaid Palace (NPC: Entertainer Elicia)", requirement: "Collect 2 Executioner's Gills" },
-        { zone: "Ghost Blue (NPC: Star Gazer Stella)", requirement: "Collect 1 Stela's Profile" },
-        { zone: "Rose Garden (NPC: Homeless Ian)", requirement: "Collect 2 Punisher B.V Claws" },
-        { zone: "Black Swamp (NPC: Hair of Rosetta)", requirement: "Drill 2 Swamp Leaf" },
-        { zone: "Laplanoel (NPC: Winnie)", requirement: "Collect 2 Iciclers Crystal" },
-        { zone: "Techichi Volcano (NPC: Star Gazer Stella)", requirement: "Collect 2 Stellar's Profile" },
-        { zone: "Tapasco Volcano (NPC: Guardian Kerberos)", requirement: "Collect 2 HP Recovery Potion" }
+// Quest data restructured by zone
+const zones = {
+    "Blooming Cora": [
+        { zone: "Coral Town (Indiana John)", requirement: "Collect 2 Crystal", location: "Beach Areas", image: "assets/Indiana Jhones Daily (Pop Up).png" },
+        { zone: "Coral MG (Hunter Yuri)", requirement: "MG Quest", location: "Cora", image: "assets/Blooming Cora Hunter Yuri (Pop Up).png" },
+        { zone: "Cora MG (Assistant Hunter)", requirement: "MG Quest", location: "Cora", image: "assets/Blooming Cora Assistant Hunter (Pop Up).png" }
     ],
-    developerH: [
-        { zone: "Megalopolis", requirement: "Collect 10 Acorn Bracelet - Obtained from Green Yamu, Southeast Forest" },
-        { zone: "Caballa Relics", requirement: "Collect 1 Silver Bracelet and 1 Golden Bracelet - Obtained from Mimic, Caballa Fields" },
-        { zone: "Oops Wharf", requirement: "Drill 1 Portable Sunshade - Obtained drilling Oops Wharf Fields" },
-        { zone: "Mermaid Palace", requirement: "Drill 2 Topaz - Obtained drilling Oops Wharf Fields (There are other sources)" },
-        { zone: "Ghost Blue", requirement: "Drill 1 Rusty Nail - Obtained drilling Ghost Blue Fields" },
-        { zone: "Rose Garden", requirement: "Collect 1 Copper Tight, 1 Silver Tight and 1 Gold Tight - Obtained from Captains(Rose Garden Field 2)" },
-        { zone: "Black Swamp", requirement: "Drill 1 Pottery Doll - Obtained drilling in Swamp Fields" },
-        { zone: "Snow Hill", requirement: "Collect 2 Sweet Chestnut and 2 Toasty Walnut - Obtained from Trees in Lapanoel" },
-        { zone: "Techichi Volcano", requirement: "Collect 2 Plaster Powder and 2 Ponchichi Statue - Obtained from Ponchichi, Techichi Fields" },
-        { zone: "Tapasco Volcano", requirement: "Collect 3 Orc Bats - Obtained from Red Orcs, Tapasco Fields" },
-        { zone: "Platonia", requirement: "Missing a lvl 400 (Sadge)" }
+    "Megalopolis": [
+        { zone: "Megalopolis (Star Gazer Stella)", requirement: "Collect 1 Shtella's Profile", location: "Megalopolis", image: "assets/Megalopolis Stela (Pop Up).png" },
+        { zone: "Megalopolis (Dev)", requirement: "Collect 10 Acorn Bracelet - Obtained from Green Yamu, Southeast Forest", location: "Megalopolis", image: "assets/Megalopolis Dev (Pop Up).png" },
+        { zone: "Megalopolis MG (Hunter Yuri)", requirement: "MG Quest", location: "Megalopolis", image: "assets/Megalopolis Hunter Yuri (Pop Up).png" },
+        { zone: "Megalopolis MG (Assistant Hunter)", requirement: "MG Quest", location: "Megalopolis" , image: "assets/Megalopolis Assistant Hunter (Pop Up).png" },
+        { zone: "Megalopolis MG (Master Hunter)", requirement: "MG Quest", location: "Megalopolis" , image: "assets/Megalopolis Hunter Master (Pop Up).png" }
     ],
-    monsterGuild: [
-        { zone: "Cora MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Cora MonsterGuild (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Gate Desert Beach (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Paradise MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Paradise MonsterGuild (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Beach Field 3 (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Path Desert Beach (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Mega MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Mega MonsterGuild (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Mega MonsterGuild (NPC: Master Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "SouthEast Forest (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Azteca MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Azteca MonsterGuild (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Azteca MonsterGuild (NPC: Master Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "GB MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "GB MonsterGuild (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "GB MonsterGuild (NPC: Master Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "RoseField 3 (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "RoseField 3 (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Gate Vamp Dungeon (NPC: Master Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Dev Room (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Dev Room (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Dev Room (NPC: Master Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "BlackSwamp MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "BlackSwamp MonsterGuild (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "BlackSwamp MonsterGuild (NPC: Master Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Snowhill MonsterGuild (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Snowhill MonsterGuild (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Snowhill MonsterGuild (NPC: Master Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Techichi NeilCamp (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Techichi NeilCamp (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Techichi NeilCamp (NPC: Master Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Gate of Tapasco Volcano (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Gate of Tapasco Volcano (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Gate of Tapasco Volcano (NPC: Master Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Gate of Abyss (NPC: Hunter Yuri)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Gate of Abyss (NPC: Assistant Hunter)", requirement: "Complete Monster Guild Quest" },
-        { zone: "Gate of Abyss (NPC: Master Hunter)", requirement: "Complete Monster Guild Quest" }
+    "Caballa Relics (Azteca)": [
+        { zone: "Caballa Relics (Pharaoh Boy)", requirement: "Collect 1 Staff of Purification", location: "Caballa Relics", image: "assets/Azteca Pharaoh Boy (Pop Up).png"  },
+        { zone: "Caballa Relics (Dev)", requirement: "Collect 1 Silver Bracelet and 1 Golden Bracelet - Obtained from Mimic, Caballa Fields", location: "Caballa Relics", image: "assets/Azteca Dev (Pop Up).png"  },
+        { zone: "Azteca MG (Hunter Yuri)", requirement: "MG Quest", location: "Caballa Relics" , image: "assets/Azteca MG Hunter Yuri (Pop Up).png"  },
+        { zone: "Azteca MG (Assistant Hunter)", requirement: "MG Quest", location: "Caballa Relics" , image: "assets/Azteca MG Assistant Hunter (Pop Up).png" },
+        { zone: "Azteca MG (Master Hunter)", requirement: "MG Quest", location: "Caballa Relics" , image: "assets/Azteca MG Hunter Master (Pop Up).png" }
+    ],
+    "Oops Wharf": [
+        { zone: "Oops Wharf (Marinel)", requirement: "Drill 2 Thick Rope", location: "Oops Wharf" },
+        { zone: "Oops Wharf (Dev)", requirement: "Drill 1 Portable Sunshade - Obtained drilling Oops Wharf Fields", location: "Oops Wharf" }
+    ],
+    "Mermaid Palace": [
+        { zone: "Mermaid Palace (Entertainer Elicia)", requirement: "Collect 2 Executioner's Gills", location: "Mermaid Palace" },
+        { zone: "Mermaid Palace (Dev)", requirement: "Drill 2 Topaz - Obtained drilling Oops Wharf Fields (There are other sources)", location: "Mermaid Palace" }
+    ],
+    "Ghost Blue": [
+        { zone: "Ghost Blue (Star Gazer Stella)", requirement: "Collect 1 Stela's Profile", location: "Ghost Blue" },
+        { zone: "Ghost Blue (Dev)", requirement: "Drill 1 Rusty Nail - Obtained drilling Ghost Blue Fields", location: "Ghost Blue" },
+        { zone: "GB MG (Hunter Yuri)", requirement: "MG Quest", location: "Ghost Blue" },
+        { zone: "GB MG (Assistant Hunter)", requirement: "MG Quest", location: "Ghost Blue" },
+        { zone: "GB MG (Master Hunter)", requirement: "MG Quest", location: "Ghost Blue" }
+    ],
+    "Rose Garden": [
+        { zone: "Rose Garden (Homeless Ian)", requirement: "Collect 2 Punisher B.V Claws", location: "Rose Garden" },
+        { zone: "Rose Garden (Dev)", requirement: "Collect 1 Copper Tight, 1 Silver Tight and 1 Gold Tight - Obtained from Captains(Rose Garden Field 2)", location: "Rose Garden" },
+        { zone: "RoseField 3 (Hunter Yuri)", requirement: "MG Quest", location: "Rose Garden" },
+        { zone: "RoseField 3 (Assistant Hunter)", requirement: "MG Quest", location: "Rose Garden" }
+    ],
+    "Black Swamp": [
+        { zone: "Black Swamp (Hair of Rosetta)", requirement: "Drill 2 Swamp Leaf", location: "Black Swamp" },
+        { zone: "Black Swamp (Dev)", requirement: "Drill 1 Pottery Doll - Obtained drilling in Swamp Fields", location: "Black Swamp" },
+        { zone: "BlackSwamp MG (Hunter Yuri)", requirement: "MG Quest", location: "Black Swamp" },
+        { zone: "BlackSwamp MG (Assistant Hunter)", requirement: "MG Quest", location: "Black Swamp" },
+        { zone: "BlackSwamp MG (Master Hunter)", requirement: "MG Quest", location: "Black Swamp" }
+    ],
+    "Laplanoel": [
+        { zone: "Laplanoel (Winnie)", requirement: "Collect 2 Iciclers Crystal", location: "Laplanoel" },
+        { zone: "Snow Hill (Dev)", requirement: "Collect 2 Sweet Chestnut and 2 Toasty Walnut - Obtained from Trees in Lapanoel", location: "Laplanoel" },
+        { zone: "Snowhill MG (Hunter Yuri)", requirement: "MG Quest", location: "Laplanoel" },
+        { zone: "Snowhill MG (Assistant Hunter)", requirement: "MG Quest", location: "Laplanoel" },
+        { zone: "Snowhill MG (Master Hunter)", requirement: "MG Quest", location: "Laplanoel" }
+    ],
+    "Techichi Volcano": [
+        { zone: "Techichi Volcano (Star Gazer Stella)", requirement: "Collect 2 Stellar's Profile", location: "Techichi Volcano" },
+        { zone: "Techichi Volcano (Dev)", requirement: "Collect 2 Plaster Powder and 2 Ponchichi Statue - Obtained from Ponchichi, Techichi Fields", location: "Techichi Volcano" },
+        { zone: "Techichi NeilCamp (Hunter Yuri)", requirement: "MG Quest", location: "Techichi Volcano" },
+        { zone: "Techichi NeilCamp (Assistant Hunter)", requirement: "MG Quest", location: "Techichi Volcano" },
+        { zone: "Techichi NeilCamp (Master Hunter)", requirement: "MG Quest", location: "Techichi Volcano" }
+    ],
+    "Tapasco Volcano": [
+        { zone: "Tapasco Volcano (Guardian Kerberos)", requirement: "Collect 2 HP Recovery Potion", location: "Tapasco Volcano" },
+        { zone: "Tapasco Volcano (Dev)", requirement: "Collect 3 Orc Bats - Obtained from Red Orcs, Tapasco Fields", location: "Tapasco Volcano" },
+        { zone: "Gate of Tapasco Volcano (Hunter Yuri)", requirement: "MG Quest", location: "Tapasco Volcano" },
+        { zone: "Gate of Tapasco Volcano (Assistant Hunter)", requirement: "MG Quest", location: "Tapasco Volcano" },
+        { zone: "Gate of Tapasco Volcano (Master Hunter)", requirement: "MG Quest", location: "Tapasco Volcano" }
+    ],
+    "Paradise": [
+        { zone: "Desert Beach (Monkey T)", requirement: "Collect 1 Sleeping Socks", location: "Beach Areas", image: "assets/Paradise Monkey T (Pop Up).png" },
+        { zone: "Paradise MG (Hunter Yuri)", requirement: "MG Quest", location: "Paradise", image: "assets/Paradise Hunter Yuri (Pop Up).png" },
+        { zone: "Paradise MG (Assistant Hunter)", requirement: "MG Quest", location: "Paradise", image: "assets/Paradise Assistant Hunter (Pop Up).png" }
+    ],
+    "Beach Areas": [
+        { zone: "Gate Desert Beach (Hunter Yuri)", requirement: "MG Quest", location: "Beach Areas", image: "assets/Gate Desert Beach Hunter Yuri (Pop Up).png" },
+        { zone: "Path Desert Beach (Hunter Yuri)", requirement: "MG Quest", location: "Beach Areas", image: "assets/Path Desert Beach Hunter Yuri (Pop Up).png" }
+    ],
+    "Southeast Forest": [
+        { zone: "SouthEast Forest (Hunter Yuri)", requirement: "MG Quest", location: "Southeast Forest", image: "assets/Southeast Forest Hunter Yuri (Pop Up).png" }
+    ],
+    "Vampire Dungeon": [
+        { zone: "Gate Vamp Dungeon (Master Hunter)", requirement: "MG Quest", location: "Vampire Dungeon" }
+    ],
+    "Dev Room": [
+        { zone: "Dev Room (Hunter Yuri) (Developer)", requirement: "MG Quest", location: "Dev Room" },
+        { zone: "Dev Room (Assistant Hunter) (Developer)", requirement: "MG Quest", location: "Dev Room" },
+        { zone: "Dev Room (Master Hunter) (Developer)", requirement: "MG Quest", location: "Dev Room" }
+    ],
+    "Gate of Abyss": [
+        { zone: "Gate of Abyss (Hunter Yuri)", requirement: "MG Quest", location: "Gate of Abyss" },
+        { zone: "Gate of Abyss (Assistant Hunter)", requirement: "MG Quest", location: "Gate of Abyss" },
+        { zone: "Gate of Abyss (Master Hunter)", requirement: "MG Quest", location: "Gate of Abyss" },
+        { zone: "Platonia (Dev)", requirement: "Missing a lvl 400 (Sadge)", location: "Platonia" }
     ]
 };
 
 const lastResetSpan = document.getElementById('lastReset');
 
-// Function to show section
-function showSection(sectionId) {
-    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-    document.getElementById(sectionId).classList.add('active');
-    document.querySelector(`[onclick="showSection('${sectionId}')"]`).classList.add('active');
+// MG = Monster Guild, Dev = Developer coupon Quest
+
+// Function to open modal
+function openModal(zoneName, questImage = null) {
+    const modal = document.getElementById('modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+
+    // Set modal content
+    modalTitle.textContent = zoneName;
+    
+    // Use quest-specific image if provided, otherwise use default zone image
+    if (questImage) {
+        modalImage.src = questImage;
+    } else {
+        modalImage.src = `assets/images/${zoneName.replace(/\s+/g, '_')}.png`;
+    }
+    modalImage.alt = `${zoneName} Image`;
+
+    // Show modal
+    modal.style.display = 'block';
 }
 
-// Render quests for a section
-function renderSection(sectionId, quests) {
-    const container = document.getElementById(`quests-${sectionId}`);
+// Function to close modal
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Function to toggle card open/close (accordion style: only one open at a time)
+function toggleCard(zoneId) {
+    const allContainers = document.querySelectorAll('.quests-container');
+    const currentContainer = document.getElementById(`quests-${zoneId}`);
+
+    // Close all containers
+    allContainers.forEach(container => {
+        container.style.maxHeight = '0px';
+    });
+
+    // If the current one was closed, open it with a max height of 400px
+    if (currentContainer.style.maxHeight === '0px' || currentContainer.style.maxHeight === '') {
+        const maxHeight = Math.min(currentContainer.scrollHeight, 400);
+        currentContainer.style.maxHeight = maxHeight + 'px';
+    }
+}
+
+// Render zone card
+function renderZoneCard(zoneName, quests) {
+    const zoneId = zoneName.replace(/\s+/g, '-');
+    const cardDiv = document.createElement('div');
+    cardDiv.className = 'zone-card';
+    cardDiv.innerHTML = `
+        <h3 onclick="toggleCard('${zoneId}')">${zoneName}</h3>
+        <div class="zone-counter" id="counter-${zoneId}">0/${quests.length} completed</div>
+        <progress class="zone-progress" id="progress-${zoneId}" value="0" max="1"></progress>
+        <div class="quests-container" id="quests-${zoneId}">
+        </div>
+    `;
+    zonesContainer.appendChild(cardDiv);
+
+    const questsContainer = document.getElementById(`quests-${zoneId}`);
     quests.forEach((quest, index) => {
         const questDiv = document.createElement('div');
         questDiv.className = 'quest';
-        questDiv.id = `${sectionId}-${index}`;
-        questDiv.onclick = () => toggleQuest(sectionId, index);
+        questDiv.id = `${zoneId}-${index}`;
+        questDiv.onclick = () => toggleQuest(zoneId, index);
+        
+        // Create button with quest-specific image if available
+        const imageParam = quest.image ? `, '${quest.image}'` : '';
+        
         questDiv.innerHTML = `
             <span class="zone">${quest.zone}</span>
             <span class="requirement">${quest.requirement}</span>
-            <input type="checkbox" class="checkbox" id="checkbox-${sectionId}-${index}" onchange="updateQuest('${sectionId}', ${index})">
+            <button class="quest-link" onclick="openModal('${quest.zone}'${imageParam})">💡</button>
+            <input type="checkbox" class="checkbox" id="checkbox-${zoneId}-${index}" onchange="updateQuest('${zoneId}', ${index})">
         `;
-        container.appendChild(questDiv);
+        questsContainer.appendChild(questDiv);
     });
 }
 
-// Render all sections
-Object.keys(questsData).forEach(sectionId => {
-    renderSection(sectionId, questsData[sectionId]);
+
+// Define the order of zones
+const zoneOrder = [
+    "Blooming Cora",
+    "Beach Areas",
+    "Paradise",
+    "Southeast Forest",
+    "Megalopolis",
+    "Caballa Relics (Azteca)",
+    "Oops Wharf",
+    "Mermaid Palace",
+    "Ghost Blue",
+    "Rose Garden",
+    "Vampire Dungeon",
+    "Dev Room",
+    "Black Swamp",
+    "Laplanoel",
+    "Techichi Volcano",
+    "Tapasco Volcano",
+    "Gate of Abyss"
+];
+
+// Render all zones as cards in the specified order
+const zonesContainer = document.getElementById('zones-container');
+zoneOrder.forEach(zoneName => {
+    if (zones[zoneName]) {
+        renderZoneCard(zoneName, zones[zoneName]);
+    }
 });
+
+// Removed renderByLocation as per user feedback
 
 // Toggle quest by clicking anywhere on the row
 function toggleQuest(sectionId, index) {
@@ -109,16 +226,16 @@ function toggleQuest(sectionId, index) {
 
 // Load state from localStorage
 function loadState() {
-    Object.keys(questsData).forEach(sectionId => {
-        questsData[sectionId].forEach((_, index) => {
-            const checkbox = document.getElementById(`checkbox-${sectionId}-${index}`);
+    Object.keys(zones).forEach(zoneName => {
+        const zoneId = zoneName.replace(/\s+/g, '-');
+        zones[zoneName].forEach((_, index) => {
+            const checkbox = document.getElementById(`checkbox-${zoneId}-${index}`);
             if (checkbox) {
-                const isChecked = localStorage.getItem(`${sectionId}-${index}`) === 'true';
+                const isChecked = localStorage.getItem(`${zoneId}-${index}`) === 'true';
                 checkbox.checked = isChecked;
-                updateQuest(sectionId, index, false);
+                updateQuest(zoneId, index, false);
             }
         });
-        updateCounter(sectionId);
     });
 }
 
@@ -134,12 +251,14 @@ function updateQuest(sectionId, index, save = true) {
     if (save) {
         localStorage.setItem(`${sectionId}-${index}`, checkbox.checked);
         updateCounter(sectionId);
+        updateLocationCompletion();
     }
 }
 
 // Update counter
 function updateCounter(sectionId) {
-    const quests = questsData[sectionId];
+    const zoneName = sectionId.replace(/-/g, ' ');
+    const quests = zones[zoneName];
     const completed = quests.filter((_, index) => document.getElementById(`checkbox-${sectionId}-${index}`).checked).length;
     document.getElementById(`counter-${sectionId}`).textContent = `${completed}/${quests.length} completed`;
     updateProgress(sectionId);
@@ -147,12 +266,41 @@ function updateCounter(sectionId) {
 
 // Update progress bar
 function updateProgress(sectionId) {
-    const quests = questsData[sectionId];
+    const zoneName = sectionId.replace(/-/g, ' ');
+    const quests = zones[zoneName];
     const completed = quests.filter((_, index) => document.getElementById(`checkbox-${sectionId}-${index}`).checked).length;
     const progress = document.getElementById(`progress-${sectionId}`);
     if (progress) {
         progress.value = quests.length > 0 ? completed / quests.length : 0;
     }
+}
+
+// Update location completion status
+function updateLocationCompletion() {
+    // Group quests by location
+    const locationGroups = {};
+    Object.keys(zones).forEach(zoneName => {
+        const zoneId = zoneName.replace(/\s+/g, '-');
+        zones[zoneName].forEach((quest, index) => {
+            const location = quest.location || 'Other';
+            if (!locationGroups[location]) {
+                locationGroups[location] = [];
+            }
+            locationGroups[location].push({ zoneId, index });
+        });
+    });
+
+    // Update each location group
+    Object.keys(locationGroups).forEach(location => {
+        const locationDiv = document.getElementById(`location-${location.replace(/\s+/g, '-').toLowerCase()}`);
+        if (locationDiv) {
+            const quests = locationGroups[location];
+            const completed = quests.filter(({ zoneId, index }) => document.getElementById(`checkbox-${zoneId}-${index}`).checked).length;
+            const total = quests.length;
+            const isCompleted = completed === total;
+            locationDiv.classList.toggle('completed', isCompleted);
+        }
+    });
 }
 
 
@@ -165,9 +313,10 @@ function checkReset() {
     lastResetSpan.textContent = lastReset;
 
     if (uruguayTime.getHours() >= 20 && lastReset !== uruguayTime.toDateString()) {
-        Object.keys(questsData).forEach(sectionId => {
-            questsData[sectionId].forEach((_, index) => {
-                localStorage.setItem(`${sectionId}-${index}`, 'false');
+        Object.keys(zones).forEach(zoneName => {
+            const zoneId = zoneName.replace(/\s+/g, '-');
+            zones[zoneName].forEach((_, index) => {
+                localStorage.setItem(`${zoneId}-${index}`, 'false');
             });
         });
         localStorage.setItem('lastReset', uruguayTime.toDateString());
@@ -196,9 +345,10 @@ function updateCountdown() {
     // If countdown reaches 0, trigger reset and restart countdown
     if (timeDiff <= 0) {
         // Reset all quests
-        Object.keys(questsData).forEach(sectionId => {
-            questsData[sectionId].forEach((_, index) => {
-                localStorage.setItem(`${sectionId}-${index}`, 'false');
+        Object.keys(zones).forEach(zoneName => {
+            const zoneId = zoneName.replace(/\s+/g, '-');
+            zones[zoneName].forEach((_, index) => {
+                localStorage.setItem(`${zoneId}-${index}`, 'false');
             });
         });
         localStorage.setItem('lastReset', uruguayTime.toDateString());
@@ -222,10 +372,11 @@ function updateCountdown() {
 function renderStatistics() {
     let totalCompleted = 0;
     let totalQuests = 0;
-    Object.keys(questsData).forEach(sectionId => {
-        questsData[sectionId].forEach((_, index) => {
+    Object.keys(zones).forEach(zoneName => {
+        const zoneId = zoneName.replace(/\s+/g, '-');
+        zones[zoneName].forEach((_, index) => {
             totalQuests++;
-            if (localStorage.getItem(`${sectionId}-${index}`) === 'true') {
+            if (localStorage.getItem(`${zoneId}-${index}`) === 'true') {
                 totalCompleted++;
             }
         });
