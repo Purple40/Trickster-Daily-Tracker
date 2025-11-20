@@ -179,7 +179,7 @@ function renderZoneCard(zoneName, quests) {
         questDiv.innerHTML = `
             <span class="zone">${quest.zone}</span>
             <span class="requirement">${quest.requirement}</span>
-            <button class="quest-link" onclick="openModal('${quest.zone}'${imageParam})">💡</button>
+            <button class="quest-link" onclick="openModal('${quest.zone}'${imageParam})">ℹ️</button>
             <input type="checkbox" class="checkbox" id="checkbox-${zoneId}-${index}" onchange="updateQuest('${zoneId}', ${index})">
         `;
         questsContainer.appendChild(questDiv);
