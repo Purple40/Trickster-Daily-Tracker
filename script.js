@@ -75,7 +75,8 @@ const zones = {
     ],
     "Beach Areas": [
         { zone: "Gate Desert Beach (Hunter Yuri)", requirement: "MG Quest", location: "Beach Areas", image: "assets/Gate Desert Beach Hunter Yuri (Pop Up).png" },
-        { zone: "Path Desert Beach (Hunter Yuri)", requirement: "MG Quest", location: "Beach Areas", image: "assets/Path Desert Beach Hunter Yuri (Pop Up).png" }
+        { zone: "Path Desert Beach (Hunter Yuri)", requirement: "MG Quest", location: "Beach Areas", image: "assets/Path Desert Beach Hunter Yuri (Pop Up).png" },
+        { zone: "Desert Beach Field 3 (Hunter Yuri)", requirement: "MG Quest", location: "Beach Areas", image: "assets/Desert Beach Field 3 Hunter Yuri (Pop Up).png" }
     ],
     "Southeast Forest": [
         { zone: "SouthEast Forest (Hunter Yuri)", requirement: "MG Quest", location: "Southeast Forest", image: "assets/Southeast Forest Hunter Yuri (Pop Up).png" }
